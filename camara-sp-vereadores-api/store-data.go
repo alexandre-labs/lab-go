@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"gopkg.in/mgo.v2"
 	"io/ioutil"
+	"log"
 	"path/filepath"
 )
 import "./structs"
@@ -20,9 +22,18 @@ func main() {
 		panic(err)
 	}
 
+	session, err := mgo.Dial("localhost")
+	if err != nil {
+		panic(err)
+	}
+	defer session.Close()
+
+	collection := session.DB("camara-sp-vereadores").C("vereadores")
+	collection.DropCollection()
+
 	for _, file := range files {
 
-		content, err := ioutil.ReadFile(filepath.Join("./data", file.Name()))
+		content, err := ioutil.ReadFile(filepath.Join(absPath, file.Name()))
 		if err != nil {
 			panic(err)
 		}
@@ -33,8 +44,12 @@ func main() {
 			panic(err)
 		}
 
-		fmt.Println("Nome: ", vereador.RawData.Nome)
-		fmt.Println("Partido: ", vereador.RawData.Partido.Nome)
+		err = collection.Insert(vereador)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
+
+	fmt.Println("Done.")
 
 }
