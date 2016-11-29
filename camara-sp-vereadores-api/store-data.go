@@ -1,4 +1,4 @@
-package main
+package store_data
 
 import (
 	"encoding/json"
@@ -8,7 +8,7 @@ import (
 	"log"
 	"path/filepath"
 )
-import "./structs"
+import "./app/structs"
 
 func main() {
 
