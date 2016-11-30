@@ -17,6 +17,7 @@ func Home(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func Vereadores(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	w.Header().Set("Content-Type", "application/json")
+	defer r.Body.Close()
 
 	session, err := mgo.Dial("localhost")
 	if err != nil {
@@ -34,6 +35,7 @@ func Vereadores(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func Vereador(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	w.Header().Set("Content-Type", "application/json")
+	defer r.Body.Close()
 
 	session, err := mgo.Dial("localhost")
 	if err != nil {
