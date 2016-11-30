@@ -5,9 +5,9 @@ import (
 )
 import "github.com/alexandre/lab-go/camara-sp-vereadores-api/app/structs"
 
-func GetAllVereadores(session *mgo.Session) structs.Vereadores {
+func GetAllVereadores(session *mgo.Session) []structs.Vereadores {
 
-	var vereadores structs.Vereadores
+	vereadores := make([]structs.Vereadores, 1, 56)
 
 	collection := session.DB("camara-sp-vereadores").C("vereadores")
 
