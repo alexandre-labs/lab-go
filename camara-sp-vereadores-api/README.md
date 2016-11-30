@@ -7,7 +7,6 @@ API simples reproduzindo a API que oferece dados sobre vereadores da Câmara Mun
 Nesse diretório estão os dados recuperados através do endpoint: "http://www1.camara.sp.gov.br/vereador_json.asp"
 
 O código responsavel por obter os IDs dos vereadores e baixar o conteúdo do endpoint citado está dísponivel [nesse repositório](https://github.com/cdmb/camara-sp-vereadores/tree/development).
-Por enquanto, eu acho mais facil fazer esse tipo de processo com Scrapy, mas deve tentar escrever uma alternativa em Go ASAP.
 
 ## Banco de dados
 
@@ -29,7 +28,7 @@ Retorna dados simples de todos os vereadores disponiveis no diretório `data`.
 
 ```json
 {
-    "Id": "string"
+    "Id": "string",
     "Url": "[]string"
 }
 ```
