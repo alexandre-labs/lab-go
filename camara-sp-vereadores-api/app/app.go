@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/julienschmidt/httprouter"
 	"log"
 	"net/http"
 )
@@ -9,8 +10,10 @@ import "github.com/alexandre/lab-go/camara-sp-vereadores-api/app/views"
 
 func main() {
 
-	http.HandleFunc("/", views.Home)
-	http.HandleFunc("/vereadores", views.Vereadores)
+	router := httprouter.New()
+	router.GET("/", views.Home)
+	router.GET("/vereadores", views.Vereadores)
+	router.GET("/vereador/:id", views.Vereador)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":1234", router))
 }
