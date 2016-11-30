@@ -55,7 +55,7 @@ git clone https://github.com/alexandre/lab-go ${GOPATH}/src/github.com/alexandre
 ```
 go get github.com/julienschmidt/httprouter
 
-go get go get gopkg.in/mgo.v2
+go get gopkg.in/mgo.v2
 ```
 
 * Executar app:
