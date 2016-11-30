@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-import "./views"
+import "github.com/alexandre/lab-go/camara-sp-vereadores-api/app/views"
 
 func main() {
 

@@ -8,7 +8,7 @@ import (
 	"log"
 	"path/filepath"
 )
-import "./app/structs"
+import "github.com/alexandre/lab-go/camara-sp-vereadores-api/app/structs"
 
 func main() {
 

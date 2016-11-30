@@ -6,7 +6,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"net/http"
 )
-import "../controllers"
+import "github.com/alexandre/lab-go/camara-sp-vereadores-api/app/controllers"
 
 func Home(w http.ResponseWriter, r *http.Request) {
 
